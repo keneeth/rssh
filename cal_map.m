@@ -3,7 +3,7 @@ B_trn = params.B;
 num_train = size(B_trn,1);
 B_trn(B_trn<0) = 0;
 B_trn = compactbit(B_trn);
-B_tst = hash_meth2(params.W,params.test_data);
+B_tst = hash_method(params.W,params.test_data);
 Dhamm = hammingDist(B_tst, B_trn);
 
 [~, HammingRank]=sort((Dhamm'),1);
