@@ -17,7 +17,7 @@ data.test_data_kernel = normr(data.test_data);
 Ntrain = size(data.train_data,1);
 Ntest = size(data.test_data,1);
 n_anchors = min(Ntrain,2000);
-rand('seed',0);
+rand('seed',7);
 anchor = data.train_data_kernel(randsample(Ntrain, n_anchors),:);
 Phi_testdata = exp(-sqdist(data.test_data_kernel,anchor)/(2*sigma*sigma));
 Phi_testdata = [Phi_testdata, ones(Ntest,1)];
@@ -38,7 +38,7 @@ params.lambda = lambda;
 params.epchos = 5;
 [n,d] = size(data.train_data_kernel);
 % Initialization
-randn('seed',0);
+randn('seed',7);
 params.G = randn(n,params.b);
 params.A = params.G;
 params.B = sgn(params.G);
